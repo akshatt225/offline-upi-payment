@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#075e54"
+    >
+
+    <title>OfflinePay | Payment Simulator</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="brand">
+            <span class="brand-icon">₹</span>
+            <span>OfflinePay</span>
+        </div>
+
+        <span class="mode-badge">DEMO MODE</span>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <p class="eyebrow">YOUR LOCAL PAYMENT DEMO</p>
+
+            <h1>Payments made simple.</h1>
+
+            <p>
+                Simulate payments and view transaction history
+                even when your internet connection is unavailable.
+            </p>
+        </section>
+
+        <section class="balance-card">
+            <div>
+                <p>Demo wallet balance</p>
+
+                <h2 id="balance">₹10,000.00</h2>
+
+                <small>
+                    Illustrative balance only — not real money.
+                </small>
+            </div>
+
+            <div class="wallet-icon">₹</div>
+        </section>
+
+        <section class="payment-card">
+            <h2>Make a demo payment</h2>
+
+            <p class="subheading">
+                No actual money will be transferred.
+            </p>
+
+            <form id="paymentForm">
+                <label for="recipient">
+                    Recipient name
+                </label>
+
+                <input
+                    id="recipient"
+                    type="text"
+                    placeholder="Enter recipient name"
+                    maxlength="60"
+                    required
+                >
+
+                <label for="amount">
+                    Amount (₹)
+                </label>
+
+                <input
+                    id="amount"
+                    type="number"
+                    placeholder="Enter amount"
+                    min="1"
+                    max="100000"
+                    step="0.01"
+                    required
+                >
+
+                <button type="submit" id="payButton">
+                    Record demo payment
+                </button>
+            </form>
+
+            <div
+                id="message"
+                class="message"
+                role="status"
+                aria-live="polite"
+            ></div>
+        </section>
+
+        <section class="history-card">
+            <div class="history-heading">
+                <div>
+                    <h2>Recent transactions</h2>
+
+                    <p class="subheading">
+                        Saved demo transaction records
+                    </p>
+                </div>
+
+                <button id="refreshButton" class="secondary-button">
+                    Refresh
+                </button>
+            </div>
+
+            <div id="transactions">
+                <p class="empty-state">
+                    Loading transaction history...
+                </p>
+            </div>
+
+            <button id="clearButton" class="clear-button">
+                Clear demo history
+            </button>
+        </section>
+
+        <div class="disclaimer">
+            <strong>Educational demo only.</strong>
+
+            This application does not connect to banks, UPI,
+            NPCI, or payment gateways. All payment records
+            are simulated.
+        </div>
+
+    </main>
+
+    <footer>
+        OfflinePay · Local payment simulation
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
